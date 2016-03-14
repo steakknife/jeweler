@@ -1,5 +1,4 @@
-source "http://rubygems.org"
-source "http://gems.github.com"
+source "https://rubygems.org"
 
 
 gem "rake"
@@ -28,6 +27,7 @@ group :test do
   gem "redgreen"
   gem "test-construct"
   gem 'coveralls', :require => false
+  gem "test-unit", "1.2.3"
 end
 
 # yo dawg, i herd u lieked jeweler
