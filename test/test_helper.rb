@@ -20,7 +20,7 @@ require 'rake'
 require 'shoulda'
 require 'rr'
 #require 'redgreen'
-require 'construct'
+require 'test_construct'
 require 'git'
 require 'time'
 
@@ -41,7 +41,7 @@ class RubyForgeStub
 end
 
 class Test::Unit::TestCase
-  include Construct::Helpers
+  include TestConstruct::Helpers
 
   def tmp_dir
     TMP_DIR
