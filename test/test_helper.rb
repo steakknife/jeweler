@@ -13,6 +13,9 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
+# prevent GIT_* environment leakage from affecting tests
+ENV.delete_if{|name, _| name =~ /\AGIT/ }
+
 require 'rake'
 require 'shoulda'
 require 'rr'
