@@ -45,10 +45,12 @@ class Jeweler
       absolute_path.gsub(Dir.getwd + File::SEPARATOR, '') 
     end
 
+    PARSE_SAFE = (RUBY_VERSION >= "2.3") ? 1 : 3
+
     def parse
       data = self.to_ruby
       parsed_gemspec = nil
-      Thread.new { parsed_gemspec = eval("$SAFE = 3\n#{data}", binding, path) }.join
+      Thread.new { parsed_gemspec = eval("$SAFE = #{PARSE_SAFE}\n#{data}", binding, path) }.join
       parsed_gemspec
     end
 
