@@ -3,7 +3,6 @@ source "https://rubygems.org"
 
 gem "rake"
 gem "git", ">= 1.2.5"
-gem "nokogiri", ">= 1.5.10"
 gem "github_api"
 gem "highline", ">= 1.6.15"
 gem "bundler", ">= 1.0"

@@ -193,7 +193,6 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<rake>, [">= 0"])
       s.add_runtime_dependency(%q<git>, [">= 1.2.5"])
-      s.add_runtime_dependency(%q<nokogiri>, [">= 1.5.10"])
       s.add_runtime_dependency(%q<github_api>, [">= 0"])
       s.add_runtime_dependency(%q<highline>, [">= 1.6.15"])
       s.add_runtime_dependency(%q<bundler>, [">= 1.0"])
@@ -206,7 +205,6 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<rake>, [">= 0"])
       s.add_dependency(%q<git>, [">= 1.2.5"])
-      s.add_dependency(%q<nokogiri>, [">= 1.5.10"])
       s.add_dependency(%q<github_api>, [">= 0"])
       s.add_dependency(%q<highline>, [">= 1.6.15"])
       s.add_dependency(%q<bundler>, [">= 1.0"])
@@ -220,7 +218,6 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<rake>, [">= 0"])
     s.add_dependency(%q<git>, [">= 1.2.5"])
-    s.add_dependency(%q<nokogiri>, [">= 1.5.10"])
     s.add_dependency(%q<github_api>, [">= 0"])
     s.add_dependency(%q<highline>, [">= 1.6.15"])
     s.add_dependency(%q<bundler>, [">= 1.0"])
