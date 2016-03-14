@@ -41,7 +41,6 @@ class RubyForgeStub
 end
 
 class Test::Unit::TestCase
-  include RR::Adapters::TestUnit unless include?(RR::Adapters::TestUnit)
   include Construct::Helpers
 
   def tmp_dir
