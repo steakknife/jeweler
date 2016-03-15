@@ -120,7 +120,7 @@ class Jeweler
           end
 
           should 'raise error' do
-            assert_raises RuntimeError, /try commiting/i do
+            assert_raises RuntimeError, "Unclean staging area! Be sure to commit or .gitignore everything first. See `git status` above." do
               @command.run
             end
           end

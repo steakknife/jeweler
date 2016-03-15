@@ -1,10 +1,6 @@
-require 'test/unit'
 require 'rubygems'
 
 require 'bundler'
-require 'coveralls'
-Coveralls.wear!
-
 begin
   Bundler.setup(:default, :xzibit, :test)
 rescue Bundler::BundlerError => e
@@ -12,13 +8,16 @@ rescue Bundler::BundlerError => e
   $stderr.puts "Run `bundle install` to install missing gems"
   exit e.status_code
 end
+require 'test/unit/rr'
+require 'coveralls'
+Coveralls.wear!
+
 
 # prevent GIT_* environment leakage from affecting tests
 ENV.delete_if{|name, _| name =~ /\AGIT/ }
 
 require 'rake'
 require 'shoulda'
-require 'rr'
 #require 'redgreen'
 require 'test_construct'
 require 'git'

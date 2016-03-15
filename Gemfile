@@ -20,14 +20,13 @@ end
 group :test do
   gem "timecop"
   gem "activesupport", "~> 3.2.16"
-  gem "shoulda"
+  gem "shoulda", :require => false
   gem "mhennemeyer-output_catcher"
-  gem "rr", ">= 1.0.4"
-  gem "mocha"
+  gem "mocha", :require => false
   gem "redgreen"
   gem "test_construct"
   gem 'coveralls', :require => false
-  gem "test-unit", "1.2.3"
+  gem "test-unit-rr", :require => false
 end
 
 # yo dawg, i herd u lieked jeweler

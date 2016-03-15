@@ -1,3 +1,4 @@
+ENV.delete_if{ |name, _| name =~ /\AGIT/ }
 require 'bundler'
 begin
   Bundler.setup(:default, :xzibit, :test)
@@ -9,16 +10,31 @@ end
 
 require 'jeweler'
 require 'mocha'
+require 'mocha/api'
+World(Mocha::API)
+
+Before do
+  mocha_setup
+end
+
+After do
+  begin
+    mocha_verify
+  ensure
+    mocha_teardown
+  end
+end
+
 require 'output_catcher'
 require 'timecop'
-require 'ruby-debug'
 require 'active_support'
+require 'active_support/core_ext/object/blank'
 
 require 'test/unit/assertions'
 World(Test::Unit::Assertions)
 
-require 'construct'
-World(Construct::Helpers)
+require 'test_construct'
+World(TestConstruct::Helpers)
 
 def yank_task_info(content, task)
   if content =~ /#{Regexp.escape(task)}.new(\(.*\))? do \|(.*?)\|(.*?)^end$/m
