@@ -1,10 +1,10 @@
-ENV.delete_if{ |name, _| name =~ /\AGIT/ }
+ENV.delete_if { |name, _| name.start_with?('GIT') }
 require 'bundler'
 begin
   Bundler.setup(:default, :xzibit, :test)
 rescue Bundler::BundlerError => e
   $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
+  $stderr.puts 'Run `bundle install` to install missing gems'
   exit e.status_code
 end
 
@@ -43,9 +43,7 @@ def yank_task_info(content, task)
 end
 
 def yank_group_info(content, group)
-  if content =~ /group :#{group} do(.*?)end/m
-    $1
-  end
+  $1 if content =~ /group :#{group} do(.*?)end/m
 end
 
 def fixture_dir

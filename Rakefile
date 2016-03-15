@@ -7,7 +7,7 @@ begin
   Bundler.setup(:default, :xzibit, :development)
 rescue Bundler::BundlerError => e
   $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
+  $stderr.puts 'Run `bundle install` to install missing gems'
   exit e.status_code
 end
 
@@ -15,14 +15,14 @@ require 'rake'
 require 'jeweler'
 
 Jeweler::Tasks.new do |gem|
-  gem.name = "jeweler"
+  gem.name = 'jeweler'
   gem.version = Jeweler::Version::STRING
-  gem.homepage = "http://github.com/technicalpickles/jeweler"
-  gem.summary = "Opinionated tool for creating and managing RubyGem projects"
-  gem.description = "Simple and opinionated helper for creating Rubygem projects on GitHub"
-  gem.license = "MIT"
-  gem.authors = ["Josh Nichols", "Yusuke Murata"]
-  gem.email = ["josh@technicalpickles.com", "info@muratayusuke.com"]
+  gem.homepage = 'http://github.com/technicalpickles/jeweler'
+  gem.summary = 'Opinionated tool for creating and managing RubyGem projects'
+  gem.description = 'Simple and opinionated helper for creating Rubygem projects on GitHub'
+  gem.license = 'MIT'
+  gem.authors = ['Josh Nichols', 'Yusuke Murata']
+  gem.email = ['josh@technicalpickles.com', 'info@muratayusuke.com']
   gem.files.include %w(lib/jeweler/templates/.document lib/jeweler/templates/.gitignore)
 
   # dependencies defined in Gemfile
@@ -52,22 +52,21 @@ end
 
 require 'yard'
 YARD::Rake::YardocTask.new do |t|
-  t.files   = FileList['lib/**/*.rb'].exclude('lib/jeweler/templates/**/*.rb')
+  t.files = FileList['lib/**/*.rb'].exclude('lib/jeweler/templates/**/*.rb')
 end
 
 require 'cucumber/rake/task'
 Cucumber::Rake::Task.new(:features) do |features|
-  features.cucumber_opts = "features --format progress"
+  features.cucumber_opts = 'features --format progress'
 end
 namespace :features do
   Cucumber::Rake::Task.new(:pretty) do |features|
-    features.cucumber_opts = "features --format progress"
+    features.cucumber_opts = 'features --format progress'
   end
 end
 
-if ENV["RUN_CODE_RUN"] == "true"
-  task :default => [:test, :features]
+if ENV['RUN_CODE_RUN'] == 'true'
+  task default: [:test, :features]
 else
-  task :default => :test
+  task default: :test
 end
-

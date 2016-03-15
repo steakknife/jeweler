@@ -1,41 +1,39 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
-
-gem "rake"
-gem "git", ">= 1.2.5"
-gem "nokogiri", ">= 1.5.10"
-gem "github_api", "~> 0.11.0"
-gem "highline", ">= 1.6.15"
-gem "bundler", ">= 1.0"
-gem "rdoc"
-gem "builder"
+gem 'rake'
+gem 'git', '>= 1.2.5'
+gem 'nokogiri', '>= 1.5.10'
+gem 'github_api', '~> 0.11.0'
+gem 'highline', '>= 1.6.15'
+gem 'bundler', '>= 1.0'
+gem 'rdoc'
+gem 'builder'
 
 group :development do
-  gem "yard", ">= 0.8.5"
-  gem "bluecloth"
-  gem "cucumber", ">= 1.1.4"
-  gem "simplecov"
+  gem 'yard', '>= 0.8.5'
+  gem 'bluecloth'
+  gem 'cucumber', '>= 1.1.4'
+  gem 'simplecov'
 end
 
 group :test do
-  gem "timecop"
-  gem "activesupport", "~> 3.2.16"
-  gem "shoulda", :require => false
-  gem "mhennemeyer-output_catcher"
-  gem "mocha", :require => false
-  gem "redgreen"
-  gem "test_construct"
-  gem 'coveralls', :require => false
-  gem "test-unit-rr", :require => false
+  gem 'timecop'
+  gem 'activesupport', '~> 3.2.16'
+  gem 'shoulda', require: false
+  gem 'mhennemeyer-output_catcher'
+  gem 'mocha', require: false
+  gem 'redgreen'
+  gem 'test_construct'
+  gem 'coveralls', require: false
+  gem 'test-unit-rr', require: false
 end
 
 # yo dawg, i herd u lieked jeweler
 group :xzibit do
   # steal a page from bundler's gemspec:
   # add this directory as jeweler, in order to bundle exec jeweler and use the current working directory
-  gem 'jeweler', :path => '.'
+  gem 'jeweler', path: '.'
 end
-
 
 group :debug do
 end

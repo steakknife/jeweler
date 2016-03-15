@@ -16,11 +16,11 @@ class Jeweler
 
         gemspec_helper.write
 
-        output.puts "Generated: #{gemspec_helper.path}"  
+        output.puts "Generated: #{gemspec_helper.path}"
       end
 
       def gemspec_helper
-        @gemspec_helper ||= GemSpecHelper.new(self.gemspec, self.base_dir)
+        @gemspec_helper ||= GemSpecHelper.new(gemspec, base_dir)
       end
 
       def self.build_for(jeweler)

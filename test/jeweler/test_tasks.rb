@@ -6,7 +6,7 @@ class TestTasks < Test::Unit::TestCase
 
   context 'instantiating Jeweler::Tasks' do
     setup do
-      @gemspec_building_block = lambda {|gemspec|}
+      @gemspec_building_block = ->(gemspec) {}
       @tasks = Jeweler::Tasks.new(&@gemspec_building_block)
     end
 
@@ -45,6 +45,5 @@ class TestTasks < Test::Unit::TestCase
       @tasks = Jeweler::Tasks.new { |s| spec = s }
       assert_not_nil @tasks.jeweler.gemspec
     end
-
   end
 end
