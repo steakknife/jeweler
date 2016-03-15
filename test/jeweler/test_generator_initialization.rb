@@ -79,11 +79,11 @@ class TestGeneratorInitialization < Test::Unit::TestCase
     end
 
     should "set todo in summary" do
-      assert_match /todo/i, @generator.summary
+      assert_match(/todo/i, @generator.summary)
     end
 
     should "set todo in description" do
-      assert_match /todo/i, @generator.description
+      assert_match(/todo/i, @generator.description)
     end
 
     should "set target directory to the project name" do

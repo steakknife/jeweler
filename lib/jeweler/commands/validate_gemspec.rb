@@ -11,7 +11,7 @@ class Jeweler
         begin
           gemspec_helper.parse
           output.puts "#{gemspec_helper.path} is valid."
-        rescue Exception => e
+        rescue Exception => _e
           output.puts "#{gemspec_helper.path} is invalid. See the backtrace for more details."
           raise
         end

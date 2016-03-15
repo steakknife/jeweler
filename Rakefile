@@ -44,7 +44,7 @@ namespace :test do
   task :gemspec_dup do
     gemspec = Rake.application.jeweler.gemspec
     dupped_gemspec = gemspec.dup
-    cloned_gemspec = gemspec.clone
+    _cloned_gemspec = gemspec.clone
     puts gemspec.to_ruby
     puts dupped_gemspec.to_ruby
   end

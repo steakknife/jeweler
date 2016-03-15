@@ -101,6 +101,7 @@ end
 # Workaround for cloning/duping a Gem::Specification
 # documented in http://github.com/technicalpickles/jeweler/issues#issue/73
 Gem::Specification.class_eval do
+  # TODO: fix 'warning: method redefined; discarding old initialize_copy'
   def initialize_copy(original)
     super
 

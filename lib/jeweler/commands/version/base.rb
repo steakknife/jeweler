@@ -28,10 +28,7 @@ class Jeweler
         end
 
         def working_subdir
-          return @working_subdir if @working_subdir
-          cwd = base_dir_path
-          @working_subdir = cwd.relative_path_from(Pathname.new(repo.dir.path))
-          @working_subdir
+          @working_subdir ||= base_dir_path.relative_path_from(Pathname.new(repo.dir.path))
         end
 
         def base_dir_path

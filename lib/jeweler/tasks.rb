@@ -37,7 +37,8 @@ class Jeweler
   #
   # In addition, it provides reasonable defaults for several values. See Jeweler::Specification for more details.
   class Tasks < ::Rake::TaskLib
-    attr_accessor :gemspec, :jeweler, :gemspec_building_block
+    attr_accessor :gemspec, :gemspec_building_block
+    attr_writer :jeweler
 
     def initialize(gemspec = nil, &gemspec_building_block)
       @gemspec = gemspec || Gem::Specification.new
@@ -48,14 +49,16 @@ class Jeweler
     end
 
     def jeweler
-      if @jeweler.nil?
-        @jeweler = Jeweler.new(gemspec)
-        gemspec_building_block.call gemspec if gemspec_building_block
-      end
-      @jeweler
+      @jeweler ||= jeweler!
     end
 
   private
+
+    def jeweler!
+      j = Jeweler.new(gemspec)
+      gemspec_building_block.call gemspec if gemspec_building_block
+      j
+    end
 
     def yield_gemspec_set_version?
       yielded_gemspec = @gemspec.dup
@@ -79,7 +82,7 @@ class Jeweler
 
     def define
       task :version_required do
-        if jeweler.expects_version_file? && !jeweler.version_file_exists?
+        if jeweler.expects_version_file? && !jeweler.version_file_exist?
           abort "Expected VERSION or VERSION.yml to exist. Use 'rake version:write' to create an initial one."
         end
       end
@@ -213,7 +216,7 @@ class Jeweler
 
         original_load_path = $LOAD_PATH
 
-        cmd = if File.exist?('Gemfile')
+        _cmd = if File.exist?('Gemfile')
                 require 'bundler'
                 Bundler.setup(:default)
               end

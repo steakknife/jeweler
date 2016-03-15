@@ -26,7 +26,7 @@ class TestOptions < Test::Unit::TestCase
 
   def self.for_options(*options)
     context options.join(' ') do
-      setup { setup_options *options }
+      setup { setup_options(*options) }
       yield
     end
   end
